@@ -136,11 +136,7 @@ Run docker-compose up
 
 - This runs docker in verbose mode. Once you have it running go to
 
- <https://guac.domain.com> 
- 
- or 
- 
- <https://ipaddress>
+ <https://guac.domain.com> or <https://ipaddress>
 
 Go back to the  terminal running docker and click ctrl + c
 This shuts down the server.
