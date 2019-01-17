@@ -117,7 +117,7 @@ applications section. When you have that setup plug in the info to
 
 You will need to generate you own application key. It must be 40 char long and
 unique. You can google instructions to use DD for this or use something like
-onpasswords password generator. I have not tested using anything other then
+onepassword,s password generator. I have not tested using anything other then
 letters, capital letters, and numbers.
 
 Prep the docker-compose file
@@ -136,7 +136,9 @@ Run docker-compose up
 
 - This runs docker in verbose mode. Once you have it running go to
 
- <https://guac.domain.com> or <https://ipaddress>
+ <https://guac.domain.com> 
+ or 
+ <https://ipaddress>
 
 Go back to the  terminal running docker and click ctrl + c
 This shuts down the server.
