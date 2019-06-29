@@ -74,5 +74,5 @@ services:
     networks:
       guacnetwork:
 
-    command: /bin/bash -c "apt-get -y update && apt-get -y install openssl && openssl req -nodes -newkey rsa:2048 -new -x509 -keyout /etc/nginx/ssl/self-ssl.key -out /etc/nginx/ssl/self.cert -subj '/C=US/ST=California/L=San Diego/O=some name/OU=IT/CN=yourdomain.com' && cp -f -s /etc/nginx/conf.d/mysite.template /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    command: /bin/bash -c "apt-get -y update && apt-get -y install openssl && openssl req -days 3650 -nodes -newkey rsa:2048 -new -x509 -keyout /etc/nginx/ssl/self-ssl.key -out /etc/nginx/ssl/self.cert -subj '/C=US/ST=California/L=San Diego/O=some name/OU=IT/CN=yourdomain.com' && cp -f -s /etc/nginx/conf.d/mysite.template /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
 
