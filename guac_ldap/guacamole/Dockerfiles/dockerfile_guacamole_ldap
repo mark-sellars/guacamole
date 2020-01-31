@@ -11,16 +11,16 @@ WORKDIR /app
 COPY . /app
 
 # Updates and Package Installations
-RUN apt update && apt upgrade -y
+RUN apt-get update && apt-get upgrade -y
 
-RUN DEBIAN_FRONTEND=noninteractivate ap-get install -y --no-install-recommends \
-     libness-ldap \
+RUN DEBIAN_FRONTEND=noninteractivate apt-get install -y --no-install-recommends \
+     libnss-ldap \
      libpam-ldap \
      ldap-utils \
      nscd
 
 # Testing tools
-# RUN apt install -y nano rsync nmap ssh rsync net-tools
+# RUN apt-get install -y nano rsync nmap ssh rsync net-tools
 
 # Start command
 # ENTRYPOING ["bash"]

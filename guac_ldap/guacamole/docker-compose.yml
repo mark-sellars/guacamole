@@ -46,7 +46,10 @@ services:
       POSTGRES_HOSTNAME: postgres
       POSTGRES_PASSWORD: guacamole_password
       POSTGRES_USER: guacamole_user
-    image: guacamole/guacamole
+    build:
+      context: ./Dockerfiles/.
+      dockerfile: dockerfile_guacamole_ldap
+    # image: guacamole/guacamole
     links:
     - guacd
     networks:
