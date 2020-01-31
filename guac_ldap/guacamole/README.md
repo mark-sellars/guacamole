@@ -5,7 +5,7 @@
 - If you would like some nice admin tools for you server run  
 
 ```
-$ sudo sh cent_inst,sh
+$ sudo sh cent_inst.sh
 ```
 
 - This installs and sets up cockpit, webmin, htop, iftop, tmux, nnn, and epel.
@@ -18,12 +18,14 @@ $ sudo sh cent_inst,sh
 
 - So the structure should look like this  
 
-etc  
-|-- guacamole  
-    |-- docker-compose.yml  
-    |-- nginx  
-    |   |-- mysite.template  
-    |   `-- nginx.conf  
+```
+etc
+|-- guacamole
+    |-- docker-compose.yml
+    |-- nginx
+    |   |-- mysite.template
+    |   `-- nginx.conf
+```
 
 ### How to make Guacamole
 -------------------------
