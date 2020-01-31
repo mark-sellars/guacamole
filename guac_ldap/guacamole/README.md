@@ -1,20 +1,19 @@
-==============================
-Recipe for Guacamole on centos
-==============================
+# Recipe for Guacamole with LDAP authentication on Centos 7
+-----------------------------------------------------------
 
 - I put my files in /etc/guacamole but put them where you like.
 
 - If you would like some nice admin tools for you server run
 
-.. code:: bash
-
-   $ sudo sh cent_inst,sh
+```
+$ sudo sh cent_inst,sh
+```
 
 - This installs and sets up cockpit, webmin, htop, iftop, tmux, nnn, and epel.
   Modify to your likeing.
 
-Getting Started
-===============
+### Getting Started
+-------------------
 - Simply copy this entire directory "gucamole" in to /etc and finish the setup
   there. You can keep a copy of "gucamole" in your home directory for referance.
 
@@ -27,28 +26,24 @@ etc
     |   |-- mysite.template
     |   `-- nginx.conf
 
-How to make Guacamole
-=====================
+### How to make Guacamole
+-------------------------
 If you wish to automate the docker setup and install run "docker_inst.sh"
 and skip all of the steps between the ======= signs
 
-.. code:: bash
+```
+$ sudo sh docker_inst.sh
+```
 
-   $ sudo sh docker_inst.sh
-
-===============================================================================
-===============================================================================
-
-Python requirements
-===================
+### Python requirements
+-----------------------
 - At least python 2.7.5 is installed (python --version)
 - pip is installed and upgraded (pip install --upgrade pip)
 - Docker Compose is installed (pip install docker-compose)
 
-Remove all old docker components
-================================
-.. code:: bash
-
+### Remove all old docker components
+------------------------------------
+```
    $ sudo yum remove docker \
 		docker-client \
 		docker-client-latest \
@@ -59,64 +54,71 @@ Remove all old docker components
 		docker-selinux \
 		docker-engine-selinux \
 		docker-engine
+```
 
-Install packages
-================
-.. code:: bash
+### Install packages
+--------------------
 
-   $ sudo yum install -y yum-utils \
+```
+$ sudo yum install -y yum-utils \
 		device-mapper-persistent-data \
 		lvm2
-
-   $ sudo yum-config-manager \
+```
+```
+$ sudo yum-config-manager \
 		--add-repo \
 		https://download.docker.com/linux/centos/docker-ce.repo
+		
+```
 
-Install docker community edition
-================================
-.. code:: bash
+### Install docker community edition
+------------------------------------
+```
+$ sudo yum install docker-ce
+```
+```
+$ sudo systemctl start docker
+```
+```
+$ sudo systemctl enable docker
+```
 
-   $ sudo yum install docker-ce
-   $ sudo systemctl start docker
-   $ sudo systemctl enable docker
+### Create Docker Group and add your user to it
+-----------------------------------------------
+```
+$ sudo groupadd docker
+```
+```
+$ sudo usermod -aG docker $USER
+```
 
-Create Docker Group and add your user to it
-===========================================
-.. code:: bash
+### Restart Computer
+--------------------
+```
+$ sudo reboot
+```
 
-   $ sudo groupadd docker
-   $ sudo usermod -aG docker $USER
-
-===============================================================================
-===============================================================================
-
-Restart Computer
-================
-.. code:: bash
-
-   $ sudo reboot
-
-Run the prepare script
-======================
-.. code:: bash
-
-   $ sudo sh prepare.sh
+### Run the prepare script
+--------------------------
+```
+$ sudo sh prepare.sh
+```
 
 - This will say "done" once it is done
 
-Prep the docker-compose file
-============================
+### Prep the docker-compose file
+--------------------------------
 
 All that you need to edit is at the bottom. In the vary long line "command:"
 you will want to change "some name" and "yourdomain.com" to the appropriate
 information. If your are not in San Diego CA also change that as well. This is
 for your SSL cert.
 
-Run docker-compose up
-=====================
-.. code:: bash
-
-   $ sudo docker-compose up
+### Run docker-compose up
+--------------------------
+```
+$ sudo docker-compose up
+```
 
 - This runs docker in verbose mode. Once you have it running go to
 
@@ -128,21 +130,21 @@ This shuts down the server.
 Now launch the server again in detached mode so you can run it in the
 background without needing to keep the terminal open.
 
-.. code:: bash
-
-   $ sudo docker-compose up -d
+```
+$ sudo docker-compose up -d
+```
 
 - If you want to launch it from any directory that you are in run
 
-.. code:: bash
-
-   $ sudo docker-compose -f /etc/guacamole/docker-compose.yml up -d
+```
+$ sudo docker-compose -f /etc/guacamole/docker-compose.yml up -d
+```
 
 The server is good to go, the default login and password is
 	- guacadmin/guacadmin
 
-Remove junk
-===========
+### Remove
+----------
 
 Now that our setup is compleat and working, I would ensure these files are
 removed from the working gucamole directory
