@@ -141,7 +141,7 @@ $ sudo docker-compose up -d
 $ sudo docker-compose -f /etc/guacamole/docker-compose.yml up -d
 ```
 
-The server is good to go, the default login and password is:
+The server is good to go, the default login and password is:  
 	- guacadmin/guacadmin  
 
 ### Remove
