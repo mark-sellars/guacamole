@@ -47,7 +47,7 @@ services:
       POSTGRES_PASSWORD: guacamole_password
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /etc/guacamole
-      # LDAP_HOSTNAME: hostname.example.com
+      # LDAP_HOSTNAME: 192.168.1.1
       # LDAP_ENCRYPTION_METHOD: none
       # LDAP_USER_BASE_DN: ou=people,dc=field,dc=example,dc=com
       # LDAP_CONFIG_BASE_DN: ou=computer,dc=field,dc=example,dc=com
