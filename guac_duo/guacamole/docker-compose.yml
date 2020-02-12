@@ -12,6 +12,11 @@ services:
   guacd:
     container_name: guacd
     image: guacamole/guacd
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: 100m
     networks:
       guacnetwork:
     restart: always
@@ -27,6 +32,11 @@ services:
       POSTGRES_PASSWORD: guacamole_password
       POSTGRES_USER: guacamole_user
     image: postgres
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: 100m
     networks:
       guacnetwork:
     restart: always
@@ -48,6 +58,11 @@ services:
       POSTGRES_USER: guacamole_user
       GUACAMOLE_HOME: /etc/guacamole
     image: guacamole/guacamole
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: 100m
     volumes:
     - ./guacamole_home:/etc/guacamole
     links:
@@ -62,6 +77,11 @@ services:
   nginx:
     container_name: nginx
     image: nginx
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: 100m
     restart: always
     volumes:
     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
