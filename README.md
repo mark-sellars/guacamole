@@ -8,6 +8,8 @@ Suggested versions of containers
 --------------------------------
 Guacamole 1.1.0 and guacd 1.1.0 currenlty runs a incompatable clipboard data type with XRDP whuch causes the XRDP server to restart. 
 
+Currently version 1.0.0 works well. 
+
 - guacamole/guacamole:1.0.0
 - guacamole/guacd:1.0.0
 
