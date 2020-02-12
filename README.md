@@ -24,7 +24,7 @@ my-app:
         driver: "json-file"
         options:
             max-file: "5"
-            max-size: 100m
+            max-size: 10m
 ```
            
             
