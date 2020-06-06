@@ -27,4 +27,9 @@ my-app:
             max-size: 10m
 ```
            
-            
+           
+Fix Go Daddy generated ssl key file encodeing
+---------------------------------------------
+```bash
+iconv -c -f UTF8 -t ASCII  guac.key.old >> guac.key
+```
